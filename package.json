@@ -1,6 +1,6 @@
 {
   "name": "berserk-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Berserk.js , a lightweight and progressive MVVM framework",
   "main": "./lib/index.js",
   "scripts": {
