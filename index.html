@@ -1,12 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  
+  <div id="root">
+  </div>
 </body>
+<!-- <script src="https://cdn.jsdelivr.net/npm/hailuo@1.0.6/lib/index.min.js"></script> -->
+<script src="./lib/index.js"></script>
+<script>
+
+  const Card = B.createApp(`
+        <div>
+            <div b-click="change">I am a card</div>
+            <span b-bind="name.first"></span>
+            <div b-if="visible">hahaha</div>
+            <button b-click="change">change</button>
+        </div>
+    `);
+  const App = B.createApp(`
+        <span b-bind="name"></span>
+        <input b-bind="name" />
+        <ul b-for="list">
+            <li>this is  <span b-bind="item.label"></span>: <span b-bind="item.value"></span></li>
+        </ul>
+        <button b-click="handleClick">click</button>
+        <card />
+    `);
+
+  Card.useReactive({
+    name: {
+      first: 'xiaoxiongmao',
+      last: 'daxiongmao'
+    },
+    visible: true,
+    count: 0
+  });
+
+  Card.register('change', function () {
+    // console.log(this.states);
+    this.states.name.first = Card.states.name.first + '1234';
+    this.states.count++;
+    if (this.states.count % 2 !== 0) {
+      this.states.visible = false;
+    } else {
+      this.states.visible = true;
+    }
+  })
+
+  Card.onCreate(() => {
+    console.log('card is created');
+  });
+
+  App.onCreate(() => {
+    console.log('app is created');
+  });
+
+  Card.onMount(function () {
+    // console.log(this.states.count);
+    console.log('card is mounted');
+  });
+
+  B.define('card', Card);
+
+
+
+  App.useReactive({
+    name: 'panda',
+    list: [{ label: 'name', value: 'cat' }],
+    user: {
+      name: 'cat'
+    }
+  });
+
+  App.register('handleClick', () => {
+    App.states.name = 'cart';
+    App.states.list = [{ label: 'fff', value: 'aaa' }, { label: 'qqq', value: 'eee' }];
+  });
+
+  App.onMount(() => {
+    console.log('app is mounted');
+    document.querySelector('#root').appendChild(window.Berserk.app);
+    App.states.name = App.states.name + 'mounted';
+    console.log(document.querySelector('#card'));
+  });
+
+  B.define('app', App);
+</script>
+
 </html>
