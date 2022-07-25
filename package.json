@@ -1,0 +1,42 @@
+{
+  "name": "berserk-js",
+  "version": "1.0.0",
+  "description": "Berserk.js , a lightweight and progressive MVVM framework",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "webpack --config ./build/webpack.config.js",
+    "postinstall": "husky install",
+    "lint:script": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "magicmooc",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "commitlint": "^17.0.3",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,tsx,ts}": [
+      "npm run lint:script",
+      "git add ."
+    ]
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.9",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "babel-loader": "^8.2.5",
+    "typescript": "^4.7.4"
+  }
+}
