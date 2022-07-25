@@ -9,7 +9,14 @@
     "lint:script": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "MVVM"
+  ],
+  "homepage": "https://github.com/MagicMooc/Berserk.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MagicMooc/Berserk.js"
+  },
   "author": "magicmooc",
   "license": "MIT",
   "devDependencies": {
