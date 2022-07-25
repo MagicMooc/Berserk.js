@@ -50,6 +50,7 @@ App.onMount(() => {
     console.log('this is mounted');
     document.querySelector('#root').appendChild(window.Berserk.app);
 });
+```
 
 ## 2. 设计思想
 
