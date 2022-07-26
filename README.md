@@ -57,15 +57,15 @@ App.onMount(() => {
 我没有深入接触过vue，但是MVVM是现代前端领域的重要思想，故自己动手写一个MVVM简易框架来加深对此的理解
 
 
-- MVVM
+> MVVM
 
 Berserk的响应式基础是`Object.defineProperty`，通过观察者模式，进行依赖收集，在必要时进行更新，实现双向数据绑定（Two-way data binding）。
 
-- template
+> template
 
 HTML部分由模板字符串直接生成至真实DOM，再通过递归对每一个元素添加Berserk api的能力。
 
-- component
+> component
 
 Berserk是将所有声明过的组件都注册在`window.Berserk`这个对象里，这样将有利于组件间的任意调用和外部组件的引入。
 
